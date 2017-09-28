@@ -7,23 +7,21 @@
 	</head>
 
 	<body>
-		<div id="frmDiv">
+		<h1>
 			Hello World!
-		</div>
+		</h1>
 		
-		<iframe id="frmFile" src="test.txt" onload="LoadFile();" style="display: none;"></iframe>
+		<button type="button" id="btnGetTxt" onclick="getTxt()">Click</button>
+		<p id="txtSpc"></p>
 		
-		<script type="text/javascript">
-			function LoadFile() {
-			    var oFrame = document.getElementById("frmFile");
-			    var strRawContents = oFrame.contentWindow.document.body.childNodes[0].innerHTML;
-			    while (strRawContents.indexOf("\r") >= 0)
-				strRawContents = strRawContents.replace("\r", "");
-			    var arrLines = strRawContents.split("\n");
-			    var div = document.getElementById("frmDiv");
-			    div.innerHTML = strRawContents;
-			    }
-			}
+		<script>
+		getTxt = function (){
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.open("GET", "test.txt", false);
+			xmlhttp.send();
+			if (xmlhttp.status==200)
+				document.getElementById("txtSpc").innerHTML = xmlhttp.responseText;
+		}
 		</script>
 	</body>
 </html>
