@@ -7,9 +7,9 @@
 	</head>
 
 	<body>
-		<h1>
+		<div id="frmDiv">
 			Hello World!
-		</h1>
+		</div>
 		
 		<iframe id="frmFile" src="test.txt" onload="LoadFile();" style="display: none;"></iframe>
 		
@@ -20,10 +20,8 @@
 			    while (strRawContents.indexOf("\r") >= 0)
 				strRawContents = strRawContents.replace("\r", "");
 			    var arrLines = strRawContents.split("\n");
-			    alert("File " + oFrame.src + " has " + arrLines.length + " lines");
-			    for (var i = 0; i < arrLines.length; i++) {
-				var curLine = arrLines[i];
-				alert("Line #" + (i + 1) + " is: '" + curLine + "'");
+			    var div = document.getElementById("frmDiv");
+			    div.innerHTML = strRawContents;
 			    }
 			}
 		</script>
