@@ -1,9 +1,7 @@
 <html>
-	<head>
-		<title>
-			Title
-		</title>
-
+	<head><title>Title</title>
+	
+	<script type="text/javascript" src="script.js"></script>
 	</head>
 
 	<body>
@@ -11,17 +9,9 @@
 			Hello World!
 		</h1>
 		
-		<button type="button" id="btnGetTxt" onclick="getTxt()">Click</button>
+		<a href="chat.html"  title="click here to chat">CHAT</a>
+		<br>
+		<input type="button" value="click" id="btnGetTxt" onclick="document.getElementById('txtSpc').innerHTML = getTxt('test.txt')"></input>
 		<p id="txtSpc"></p>
-		
-		<script>
-		getTxt = function (){
-			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("GET", "test.txt", false);
-			xmlhttp.send();
-			if (xmlhttp.status==200)
-				document.getElementById("txtSpc").innerHTML = xmlhttp.responseText;
-		}
-		</script>
 	</body>
 </html>
